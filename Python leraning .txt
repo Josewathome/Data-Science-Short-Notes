@@ -1,0 +1,17 @@
+CODE
+    import pandas as pd
+
+    # Sample data as a pandas DataFrame
+    data = pd.DataFrame({
+        'district': ['district1', 'district2', 'district3'],
+        'date': ['2023-09-16', '2023-09-15', '2023-09-14'],
+        'month': ['September', 'September', 'September'],
+        'year': [2023, 2023, 2023],
+       'visitors': ['100', '200', ' '],
+    })
+    data['visitors'] = data['visitors'].str.strip()  # Remove leading/trailing spaces
+    data['visitors'] = pd.to_numeric(data['visitors'], errors='coerce').fillna(0).astype(int)
+
+1. We're using a pandas DataFrame to store and manipulate your data, which is a more efficient and convenient way to work with tabular data.
+
+2. We apply the necessary data type conversions and cleaning directly to the DataFrame columns. We use .str.strip() to remove leading/trailing spaces from the "visitors" column and pd.to_numeric() to convert it to numeric values while handling non-numeric entries gracefully with errors='coerce'. Finally, we fill any NaN values (resulting from non-numeric entries) with 0 and convert the column to integers.

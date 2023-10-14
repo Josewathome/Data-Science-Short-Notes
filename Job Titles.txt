@@ -1,0 +1,24 @@
+Data Analyst
+Business Analyst
+Reporting Analyst
+Data Visualization Specialist
+SQL Analyst
+Python Data Analyst
+Statistical Analyst
+Machine Learning Analyst (with further ML training)
+Data Scientist (with more advanced machine learning and statistical knowledge)
+Business Intelligence Analyst
+Marketing Analyst
+Financial Analyst (especially in industries like finance or banking)
+Operations Analyst
+Customer Insights Analyst
+Market Research Analyst
+Social Media Analyst
+Web Analyst
+Digital Marketing Analyst
+Text Analyst (utilizing NLTK for natural language processing tasks)
+Data Quality Analyst
+A/B Testing Analyst
+Healthcare Data Analyst
+Environmental Data Analyst
+Transportation Data Analyst

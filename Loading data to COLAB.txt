@@ -1,0 +1,31 @@
+import gdown
+import pandas as pd
+
+def load_data(link):
+    # Extract file ID from the provided link
+    file_id = link.split('/')[-2]
+
+    # Generate direct download link
+    csv_link = f'https://drive.google.com/uc?id={file_id}'
+
+    # Download the CSV file
+    gdown.download(csv_link, f'{file_id}.csv', quiet=False)
+
+    # Read the CSV file
+    df = pd.read_csv(f'{file_id}.csv', encoding='utf-8')
+
+    return df
+
+# Use the provided links
+domestic_link = 'https://drive.google.com/file/d/1dVhU2uuuMG2k0QbB3_3zXIDBBrd87cT_/view?usp=sharing'
+foreign_link = 'https://drive.google.com/file/d/18uVvtt618Nx7TPDflGCc4Vv7GdJAsAo0/view?usp=sharing'
+
+# Load the data into a list
+data = [load_data(domestic_link), load_data(foreign_link)]
+
+# Access the data as data[0] for domestic and data[1] for foreign
+print("Domestic Data:")
+print(data[0].head())
+
+print("\nForeign Data:")
+print(data[1].head())

@@ -1,0 +1,19 @@
+pushing local code to git hub.
+
+echo "# sample-code" >> README.md
+
+git init
+
+git add .
+
+git commit -m "first commit"
+
+git branch -M main
+
+git remote add origin https://github.com/segunajibola/sample-code.git
+
+git push -u origin main
+
+Note that we have git add README.md  in the repository on GitHub. But here we have git add ., which is to let Git add all our code files instead of the README.md file which will be created by echo "# sample-code" >> README.md. So if you have created other files in your local folder, you need to use git add . to add all files.
+
+Take note that git remote add origin https://github.com/segunajibola/sample-code.git will contain the link to your own repository and it will have have the name of your GitHub account.

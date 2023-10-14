@@ -1,0 +1,44 @@
+#### Steps taken to prepare the testing data.
+test.head()
+
+#### Check the number of unique value from all of the object datatype
+test.select_dtypes(include='object').nunique()
+
+#### Check the amounnt of missing value
+check_missing = test.isnull().sum() * 100 / test.shape[0]
+check_missing[check_missing > 0].sort_values(ascending=False)
+
+#### check segmet of employment type
+test['Type of Employment'].unique()
+
+#### if not formarted apply this
+
+test['Type of Employment'] = test['Type of Employment'].apply(segment_employment_type)
+
+#### Processing the new Test Data
+preprocess_data(test)
+
+#### Loop over each column in the DataFrame where dtype is 'object'
+for col in test.select_dtypes(include=['object']).columns:
+
+    # Print the column name and the unique values
+    print(f"{col}: {test[col].unique()}")
+
+exprole the testing data
+
+explore_data(test)
+
+eplore_2(test)
+
+exprole_3(test)
+
+exprole_4(test)
+
+#### unique encoded values
+
+encoder_object(test)
+
+test.shape
+
+#### Remove outliers using Z-Score
+remove_outliers(test, selected_columns)
