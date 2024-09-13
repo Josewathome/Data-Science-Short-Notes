@@ -1,3 +1,5 @@
+# LOADING DATA TO COLAB IF YOU CANT MOUNT THE DRIVE/ BUT HAVE THE LINK PROVIDED
+
 import gdown
 import pandas as pd
 
