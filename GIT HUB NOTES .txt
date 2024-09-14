@@ -6,7 +6,7 @@ git config --global user.name "Joseph Wathome"
 
 git config --global user.email "wathomejoseph506+josegithub@gmail.com"
 
-git config --global init branch name
+git config --global init.defaultBranch main
 
 to look at a file
 
