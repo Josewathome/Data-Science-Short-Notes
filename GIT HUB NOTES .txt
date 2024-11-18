@@ -1,247 +1,175 @@
-git and github
 
-will use Git Bash
-to login to git git hub
-git config --global user.name "Joseph Wathome"
+---
 
-git config --global user.email "wathomejoseph506+josegithub@gmail.com"
+## **Setting Up Git and GitHub with Git Bash**
 
-git config --global init.defaultBranch main
+1. **Configure Git User Details**:
+   ```bash
+   git config --global user.name "your username"
+   git config --global user.email "email@gmail.com"
+   git config --global init.defaultBranch main
+   ```
 
-to look at a file
+2. **Navigate to Your Project Directory**:
+   ```bash
+   cd C:/path/to/your/project
+   ```
 
-cd c:/...
+3. **Initialize a Git Repository**:
+   ```bash
+   git init
+   ```
 
-to make this file a repository
+   > If you encounter a "not safe directory" error, use:
+   ```bash
+   git config --global --add safe.directory "C:/path/to/your/project"
+   ```
 
-git init
-(if it doesent show that  you have kept the file in main/ any branch name that you choose use this to add an exception to the file)("git config --global --add safe.directory 'C:/...' "
+---
 
+## **Basic Git Commands**
 
-- to check the status of the file/ contents of what you have kept
-
+### **Check Repository Status**
+```bash
 git status
-
--- N/B USE DOUBLE QUATS IF THE FILE NAME IS LONG AND HAS SPACES(" ")
-
-- to make a file tracable 
-git add <filename>
-
--to add more files to what will be committed  do this
-
-git add <filename>
-
-- to remove a file that is being tracked/staged you will have to unstage by using this
-
-git rm --cached <filename>
-
-- if there is a file I do not want to be seen by git or to remain untracKed or ignore it using git
----- first open your file explorer where your file is stored
----- right click and open new textfile and name it make sure you also select the file extension while renameing it ( .gitignore )
----- you will get an error saying if you change a file name extension, the file might become unusable click yes
----- Now open this file in text editer
----- use the # symble to comment what you want to do
----- and then use the *.txt (or the whole file name to choose the file to ignore)
----- save the file and close the window the on git bash check the status.
-
--- To view all the ways to ignore files ore extensions https://github.com/github/gitignore 
-
-- after ignoring it you will see a new file has apeared .gitignore and the file you wanted to ignore has been ignored
-
--------When ignoring a file make sure its unstaged / untracked first
-
--- you can clear the view so as to see what youre doing well by using this command
-
-clear
-
-- How to track all the files
-
-git add --all
-or
-git add -A
-or
-git add .
-
-------- NB NOTE THAT ALL THIS FILES THAT WE HAVE ADDED ARE IN A STAGE CALLED STAGING NOW WE COMMIT THEM
-
---COMMITING FILES
-- COmmiting files is like taking a snapshot of what your files look now at this point in time
-in your repository
-
-git commit -m "<here you can write a message that goes with this commite and when you commite agin this message will be ignored>"
-
-- Now lets say i want to change one of my file?
-
--when you change a file in one of your repository git will recognize the change. to check the change check status first to see which files have been changed.
-
-git status
-
-- to check the diffrence
-
-git diff
- 
-- after checking the change and being satisfied with the change you can add the fill to the repository by doing this two things.
- 
-git add <filename>
-
-git commit -m "<ad a massage>"
-
--this will recode the new change
-
---NB
-- if I do not want to commite this change meaning am note satisfied
-
-git add <filename>
-
-git restore --staged <filename>
-
-- if i was to commite the staged file will not be commited becouse it will be in the working enviroment.
-
--- But if I really want to commit the file I would add the file to stageing by using git add then commit or I can  go straight to the commiting of the file by doing this
-
-git commit -a -m "<add massage>"
-
-- if you have deleted a file by mistake you can restore the file using git
-git restore "<filename>"
-
--You canalso rename a file in the terminal
-
-git mv "<original file name>" "<new file name>"
-
---- after doing this you will have to commit the file again---
-
---NB To see all the commits we have been doing
-
-git log
-
-- if I want a more abriviated log of the commits
-
-git log --oneline
-
---looking at the log you see that you have an incorrect spelled log, we can go back and commit the files again or we can use this command on git
-
-git commit -m "<change the text/message you want for the log>" --amend
-
---this will ammend the log
-
-- I  have all this commits but I want to see what really changed for this commits?
-
-git log -p
-
---- NB TO EXICT A LOG OR A LOOP ON GIT PREE THE "Q" ON KEYBOARD FOR QUIT---
-
--- THE best thing about git log you can go back to a previous commit to do this:
-
-git reset <then the log values /hashtag or the 7 digits when you use the git log --oneline command>
-
---- BRANCHES---
---example a branch is a copy of the main branch that does not affect the main branch
-with this you can fix a bug or when working witha team everyone can have their own branch and when done you can merge all the branches to the main  branch.
-
--to create a new branch
-
-git branch <name of branch>
-
--to check how many branches you have 
-
-git branch
-
---- you will know the active branche if it has * in the begining---
-- to switch between the branches
-
-git switch <name of branch>
-
--after switching you can go to your file where its located and change what you need when done just commit it to the new branch
-
-git commit -a -m "<add a message to go with the commite>"
-
----you can switch to main and check if how your doing!---
- after switching all the changes that you deed on the previous files/ branch will not have taken any effect and if there was a file you deleted or you changed something on this new branch will no affect the main branch
- 
---to merge the changes of the branches to the main you do this
-
-git merge -m "<add a message to go with it>" <specify the the branch you want to merge with the main/ branch your in at the momment>
-
--- now we have no nee of the branch we just merged we can just delete it
-
--to delete a branch
-
-git branch -d <branch name you want to delete>
-
----NB lets say you want to merge  branch 2 and when merging you realize the main branch has changed since you created the branch 2 when doing merging this will resoret to a conflit: to resolve this you will do this:
-
-example: lets create and switch to a new branch so we can perform the above
-
-git switch -c branch_2
-
---------- now change any file in this branch from the file location
----------commite the file
-git commit -a -m "changed a file by edditing it"
-
------------ switch back to main branch and make a change there
-
-git switch main_branch
-
-------------- changed a file by adding some words to it, the commited it
-
-git commit -a -m " changed a file by adding words to it"
-
---------------- Nowe= we try to merge the two which will couse a conflict
-
--we try to merge branch_2 to main_branch
-
-git merge branch_2
-
--this will couse a conflict
-
-when you get conflict go to your files and see if you can solve the conflict
-make the changes and save the file
-
--the go to git and commit the file
-
-git commit -a -m "chages done to solve conflict"
-
-
-----WE HAVE BEEN UING A REPOSITORY HOSTED ON OUR MACHINE HOW DO WE COLABORATE WITH OTHERS----
-HOSING YOUR REPOSITORY IN THE CLOUD (GITHUB)
-
-NOW BECOUSE WE HAVE OUR OWN REPOSITORY IN OUR MACHINE WE CAN PUSH IT TO THE CLOUD.
-GO TO GIT HUB ACCOUNT CREATE A NEW REPOSITORY AND GET A LINK TO THE REPOSITORY ON YOUR git bash 
-DO THIS
-
-git remote add origin <the url of your repository>
-
--- the set up the branch to be the main/master
-
-git branch -M main
-
---- now to puss it from the local computer to the cloud repository
-
-git push -u origin main
-
--(you can change the origin and main to fit your own words)
-
--We can also push all our branches that we created to git hub
-
-git push --all
-
-a pull request is a request that is done so as another member of the team can reviwe the changes before commiting the changes to the main branch
-
-NOW THAT WE HAVE MADE CHANGES TO OUR GITHUB REPOSITORY ON CLOUD HOW DO WE GET THIS CHAGES TO OUR OWN MACHIN THROUGH GIT HUB
-- we can use the fetch command
-
-git fetch
-
--- then we can merge it to what we have on our local machine
-
-git merge
-
---- instead of use the two command we can use just the pull command(combines fetch and merge into pull)
-
+```
+
+### **Track Files**
+- Add a single file:
+  ```bash
+  git add <filename>
+  ```
+- Add all files:
+  ```bash
+  git add --all
+  # or
+  git add -A
+  # or
+  git add .
+  ```
+
+### **Unstage Files**
+- Remove a file from staging:
+  ```bash
+  git rm --cached <filename>
+  ```
+
+### **Commit Changes**
+- Save the current state of your repository:
+  ```bash
+  git commit -m "Commit message here"
+  ```
+- Commit and add all changes directly:
+  ```bash
+  git commit -a -m "Commit message here"
+  ```
+
+---
+
+## **Ignoring Files**
+
+1. Create a `.gitignore` file in your project directory.
+2. Add files or patterns to ignore:
+   ```
+   # Comments start with #
+   *.log
+   node_modules/
+   ```
+3. Save the file and verify:
+   ```bash
+   git status
+   ```
+
+---
+
+## **Checking Changes**
+
+- View changes in files:
+  ```bash
+  git diff
+  ```
+
+- View the commit log:
+  ```bash
+  git log
+  ```
+- View a simplified log:
+  ```bash
+  git log --oneline
+  ```
+
+---
+
+## **Branches**
+
+1. **Create a Branch**:
+   ```bash
+   git branch <branch-name>
+   ```
+2. **Switch Between Branches**:
+   ```bash
+   git switch <branch-name>
+   ```
+3. **Merge a Branch into the Current Branch**:
+   ```bash
+   git merge <branch-name>
+   ```
+4. **Delete a Branch**:
+   ```bash
+   git branch -d <branch-name>
+   ```
+
+---
+
+## **Resolving Merge Conflicts**
+
+1. After attempting a merge, if there’s a conflict:
+   ```bash
+   git merge <branch-name>
+   ```
+2. Open the conflicted files and resolve the issues.
+3. Add the resolved files:
+   ```bash
+   git add <filename>
+   ```
+4. Commit the resolution:
+   ```bash
+   git commit -m "Resolved merge conflict"
+   ```
+
+---
+
+## **Working with GitHub**
+
+### **Push to GitHub**
+1. Add a remote repository:
+   ```bash
+   git remote add origin <repository-URL>
+   ```
+2. Set the default branch:
+   ```bash
+   git branch -M main
+   ```
+3. Push to GitHub:
+   ```bash
+   git push -u origin main
+   ```
+4. Push all branches:
+   ```bash
+   git push --all
+   ```
+
+### **Pull Changes from GitHub**
+```bash
 git pull
+```
 
+---
 
---ADDING A README.md file on git
+## **Adding a README.md**
+Create a `README.md` file:
+```bash
+echo "# Your Project Title" >> README.md
+```
 
-echo "# sample-code" >> README.md
-
+---
