@@ -1,4 +1,4 @@
-
+check this for a pretty view: https://github.com/Josewathome/Data-Science-Short-Notes/blob/main/Github%20Notes.md 
 ---
 
 ## **Setting Up Git and GitHub with Git Bash**
